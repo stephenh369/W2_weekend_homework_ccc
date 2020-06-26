@@ -26,4 +26,8 @@ class TestGuest < Minitest::Test
         assert_equal("Lose Yourself", @guest4.fav_song())
     end
 
+    def test_get_fav_genre()
+        assert_equal("Pop", @guest2.fav_genre())
+    end
+
 end
