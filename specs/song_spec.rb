@@ -26,6 +26,10 @@ class TestSong < Minitest::Test
         assert_equal("Katy Perry", @song3.artist())
     end
 
+    def test_get_song_genre()
+        assert_equal("Rock", @song1.genre())
+    end
+
     def test_get_songs_by_artist()
         songs_by_artist = @song_collection.get_songs_by_artist("Eminem")
         assert_equal(["Lose Yourself", "Without Me"], songs_by_artist)
