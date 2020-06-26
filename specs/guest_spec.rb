@@ -22,4 +22,8 @@ class TestGuest < Minitest::Test
         assert_equal(9000, @guest3.cash())
     end
 
+    def test_get_fav_song()
+        assert_equal("Lose Yourself", @guest4.fav_song())
+    end
+
 end
