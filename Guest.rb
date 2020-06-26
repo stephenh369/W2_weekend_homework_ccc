@@ -7,7 +7,9 @@ class Guest
         @cash = cash
         @fav_song = fav_song
         @fav_genre = fav_genre
-
     end
 
+    def change_total_cash(amount)
+        @cash += amount
+    end
 end

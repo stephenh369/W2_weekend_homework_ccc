@@ -30,4 +30,9 @@ class TestGuest < Minitest::Test
         assert_equal("Pop", @guest2.fav_genre())
     end
 
+    def test_change_total_cash()
+        @guest1.change_total_cash(150)
+        assert_equal(250, @guest1.cash())
+    end
+
 end
