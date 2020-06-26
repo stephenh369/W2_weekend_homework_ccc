@@ -16,4 +16,8 @@ class Guest
     def change_fav_song(song_name)
         @fav_song = song_name
     end
+
+    def change_fav_genre(genre)
+        @fav_genre = genre
+    end
 end

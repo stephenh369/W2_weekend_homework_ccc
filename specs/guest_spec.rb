@@ -40,4 +40,9 @@ class TestGuest < Minitest::Test
         assert_equal("Without Me", @guest1.fav_song())
     end
 
+    def test_change_fav_genre()
+        @guest1.change_fav_genre("Hip Hop")
+        assert_equal("Hip Hop", @guest1.fav_genre())
+    end
+
 end
