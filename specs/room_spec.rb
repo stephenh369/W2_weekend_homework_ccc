@@ -32,14 +32,14 @@ class TestRoom < Minitest::Test
     end
 
     def test_check_in_guest_free()
-        @room1.check_in_guest(@guest1)
+        @room1.check_in_guest_free(@guest1)
         assert_equal([@guest1], @room1.room_guests())
     end
 
     def test_check_out_guest()
-        @room1.check_in_guest(@guest1)
-        @room1.check_in_guest(@guest2)
-        @room1.check_in_guest(@guest3)
+        @room1.check_in_guest_free(@guest1)
+        @room1.check_in_guest_free(@guest2)
+        @room1.check_in_guest_free(@guest3)
         @room1.check_out_guest(@guest1)
         assert_equal([@guest2, @guest3], @room1.room_guests())
     end

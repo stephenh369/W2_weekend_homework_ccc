@@ -9,7 +9,7 @@ class Room
         @admission_fee = 10
     end
 
-    def check_in_guest(guest)
+    def check_in_guest_free(guest)
         @room_guests << guest
     end
 
