@@ -13,8 +13,9 @@ class TestSong < Minitest::Test
         @song2 = Song.new("Eminem", "Lose Yourself", "Hip Hop")
         @song3 = Song.new("Katy Perry", "Firework", "Pop")
         @song4 = Song.new("Eminem", "Without Me", "Hip Hop")
+        @song5 = Song.new("Destiny's Child", "Bootylicious", "Pop")
 
-        @songs = [@song1, @song2, @song3, @song4]
+        @songs = [@song1, @song2, @song3, @song4, @song5]
         @song_collection = SongCollection.new(@songs)
     end
 

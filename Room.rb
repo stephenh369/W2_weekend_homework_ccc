@@ -8,4 +8,11 @@ class Room
         @songs = []
     end
 
+    def check_in_guest(guest)
+
+    end
+
+    def check_out_guest(guest)
+
+    end
 end
