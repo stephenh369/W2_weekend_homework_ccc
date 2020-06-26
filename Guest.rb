@@ -12,4 +12,8 @@ class Guest
     def change_total_cash(amount)
         @cash += amount
     end
+
+    def change_fav_song(song_name)
+        @fav_song = song_name
+    end
 end
