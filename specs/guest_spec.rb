@@ -18,4 +18,8 @@ class TestGuest < Minitest::Test
         assert_equal("Stephen", @guest1.name())
     end
 
+    def test_get_guest_total_cash()
+        assert_equal(9000, @guest3.cash())
+    end
+
 end
