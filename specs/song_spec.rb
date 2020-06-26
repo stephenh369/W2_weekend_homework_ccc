@@ -22,6 +22,10 @@ class TestSong < Minitest::Test
         assert_equal("Highway To Hell", @song1.song_name())
     end
 
+    def test_get_artist()
+        assert_equal("Katy Perry", @song3.artist())
+    end
+
     def test_get_songs_by_artist()
         songs_by_artist = @song_collection.get_songs_by_artist("Eminem")
         assert_equal(["Lose Yourself", "Without Me"], songs_by_artist)
