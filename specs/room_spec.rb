@@ -11,9 +11,9 @@ Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new()
 class TestRoom < Minitest::Test
 
     def setup()
-        @room1 = Room.new("Rock Room")
-        @room2 = Room.new("Hip Hop Room")
-        @room3 = Room.new("Pop Room")
+        @room1 = Room.new("Rock Room", "Rock")
+        @room2 = Room.new("Hip Hop Room", "Hip Hop")
+        @room3 = Room.new("Pop Room", "Pop")
         
         @guest1 = Guest.new("Stephen", 100, "Highway To Hell", "Rock")
         @guest2 = Guest.new("Erin", 1000, "Bootylicious", "Pop")
@@ -61,4 +61,14 @@ class TestRoom < Minitest::Test
         assert_equal([@guest2, @guest3], @room1.room_guests())
     end
 
+    def test_add_song()
+        @room1.add_song(@song1)
+        assert_equal([@song1], @room1.songs())
+    end
+
+    def test_add_song_wrong_genre()
+        @room1.add_song(@song2)
+        assert_equal("Error! Wrong genre!", @room1.add_song(@song2))
+        assert_equal([], @room1.songs())
+    end
 end

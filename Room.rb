@@ -1,11 +1,12 @@
 class Room
 
-    attr_reader :room_name, :room_guests, :songs, :admission_fee, :till
+    attr_reader :room_name, :room_guests, :songs, :admission_fee, :till, :genre
 
-    def initialize(room_name)
+    def initialize(room_name, genre)
         @room_name = room_name
         @room_guests = []
         @songs = []
+        @genre = genre
         @admission_fee = 10
         @till = 500
     end
@@ -30,6 +31,14 @@ class Room
 
     def check_out_guest(guest)
         @room_guests.delete(guest)
+    end
+
+    def add_song(song)
+        if song.genre() == @genre
+            @songs << song
+        else
+            return "Error! Wrong genre!"
+        end
     end
 
 end
