@@ -50,4 +50,14 @@ class Room
         return "Error! Room is full!"
     end
 
+    def fav_song_present(guest)
+        for song in @songs
+            if song.song_name == guest.fav_song
+                return "Woohoo!"
+            else
+                return "This room sucks."
+            end
+        end
+    end
+
 end

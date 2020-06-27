@@ -81,4 +81,11 @@ class TestRoom < Minitest::Test
         assert_equal(4, @room1.room_guests().count())
         assert_equal("Error! Room is full!", @room1.check_in_guest(@guest5))
     end
+
+    def test_fav_song_present()
+        @room1.add_song(@song1)
+        @room1.fav_song_present(@guest1)
+        assert_equal("Woohoo!", @room1.fav_song_present(@guest1))
+        assert_equal("This room sucks.", @room1.fav_song_present(@guest4))
+    end
 end
