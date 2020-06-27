@@ -1,10 +1,11 @@
 class Room
 
-    attr_reader :room_name, :room_guests, :songs, :admission_fee, :till, :genre
+    attr_reader :room_name, :room_guests, :songs, :admission_fee, :till, :genre, :room_capacity
 
     def initialize(room_name, genre)
         @room_name = room_name
         @room_guests = []
+        @room_capacity = 4
         @songs = []
         @genre = genre
         @admission_fee = 10
@@ -24,9 +25,13 @@ class Room
      end
 
     def check_in_guest(guest)
-        charge_guest(guest)
-        @room_guests << guest
-        change_till_cash(@admission_fee)
+        if room_guests.count < room_capacity
+            charge_guest(guest)
+            @room_guests << guest
+            change_till_cash(@admission_fee)
+        else
+            exceed_capacity()
+        end
     end
 
     def check_out_guest(guest)
@@ -39,6 +44,10 @@ class Room
         else
             return "Error! Wrong genre!"
         end
+    end
+
+    def exceed_capacity()
+        return "Error! Room is full!"
     end
 
 end

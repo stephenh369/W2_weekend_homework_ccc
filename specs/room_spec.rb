@@ -71,4 +71,14 @@ class TestRoom < Minitest::Test
         assert_equal("Error! Wrong genre!", @room1.add_song(@song2))
         assert_equal([], @room1.songs())
     end
+
+    def test_exceed_capacity()
+        @room1.check_in_guest(@guest1) 
+        @room1.check_in_guest(@guest2)
+        @room1.check_in_guest(@guest3)
+        @room1.check_in_guest(@guest4)
+        @room1.check_in_guest(@guest5)
+        assert_equal(4, @room1.room_guests().count())
+        assert_equal("Error! Room is full!", @room1.check_in_guest(@guest5))
+    end
 end
