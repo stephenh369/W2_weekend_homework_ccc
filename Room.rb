@@ -13,6 +13,11 @@ class Room
         @room_guests << guest
     end
 
+    def check_in_guest(guest)
+        charge_guest(guest)
+        @room_guests << guest
+    end
+
     def check_out_guest(guest)
         @room_guests.delete(guest)
     end
