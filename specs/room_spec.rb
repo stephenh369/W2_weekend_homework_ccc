@@ -50,6 +50,7 @@ class TestRoom < Minitest::Test
         @room1.check_in_guest(@guest1)
         assert_equal([@guest1], @room1.room_guests())
         assert_equal(90, @guest1.cash())
+        assert_equal(510, @room1.till())
     end
 
     def test_check_out_guest()

@@ -25,6 +25,7 @@ class Room
     def check_in_guest(guest)
         charge_guest(guest)
         @room_guests << guest
+        change_till_cash(@admission_fee)
     end
 
     def check_out_guest(guest)
