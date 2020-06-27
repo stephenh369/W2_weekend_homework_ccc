@@ -16,4 +16,8 @@ class Room
     def check_out_guest(guest)
         @room_guests.delete(guest)
     end
+
+    def charge_guest(guest)
+       guest.change_total_cash(-@admission_fee)
+    end
 end
