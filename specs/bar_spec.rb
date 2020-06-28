@@ -18,6 +18,7 @@ class TestBar < Minitest::Test
 
         @guest1 = Guest.new("Stephen", 100, "Highway To Hell", "Rock")
         @guest2 = Guest.new("Erin", 1000, "Bootylicious", "Pop")
+        @guest5 = Guest.new("Karen", 1, "Firework", "Pop")
     end
 
     def test_get_bar_name()
@@ -33,8 +34,11 @@ class TestBar < Minitest::Test
 
     def test_sell_drink()
         @bar1.add_drink(@drink1)
+        @bar1.add_drink(@drink3)
         @bar1.sell_drink(@guest1, @drink1)
+        @bar1.sell_drink(@guest5, @drink3)
         assert_equal(97, @guest1.cash())
+        assert_equal(1, @guest5.cash())
         assert_equal(253, @bar1.till())
         assert_equal("We don't have that.", @bar1.sell_drink(@guest1, @drink2))
     end

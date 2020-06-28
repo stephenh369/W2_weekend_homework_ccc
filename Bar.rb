@@ -15,8 +15,10 @@ class Bar
     def sell_drink(guest, drink)
         for i in @drinks
             if i == drink
-                guest.change_total_cash(-i.price())
-                @till += i.price()
+                if guest.cash() > i.price()
+                    guest.change_total_cash(-i.price())
+                    @till += i.price()
+                end
             else
                 return "We don't have that."
             end
