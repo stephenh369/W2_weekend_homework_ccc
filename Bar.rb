@@ -6,4 +6,8 @@ class Bar
         @bar_name = bar_name
         @drinks = []
     end
+
+    def add_drink(drink)
+        @drinks << drink
+    end
 end
