@@ -29,6 +29,7 @@ class Room
             charge_guest(guest)
             @room_guests << guest
             change_till_cash(@admission_fee)
+            guest.change_tab_amount(@admission_fee)
         else
             exceed_capacity()
         end

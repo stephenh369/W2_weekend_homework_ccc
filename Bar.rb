@@ -17,6 +17,7 @@ class Bar
             if i == drink
                 if guest.cash() > i.price()
                     guest.change_total_cash(-i.price())
+                    guest.change_tab_amount(i.price())
                     @till += i.price()
                 end
             else

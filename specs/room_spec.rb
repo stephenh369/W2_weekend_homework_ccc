@@ -5,6 +5,7 @@ require_relative('../Room')
 require_relative('../Guest')
 require_relative('../Song')
 require_relative('../SongCollection')
+require_relative('../Tab')
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new()
 
@@ -15,11 +16,11 @@ class TestRoom < Minitest::Test
         @room2 = Room.new("Hip Hop Room", "Hip Hop")
         @room3 = Room.new("Pop Room", "Pop")
         
-        @guest1 = Guest.new("Stephen", 100, "Highway To Hell", "Rock")
-        @guest2 = Guest.new("Erin", 1000, "Bootylicious", "Pop")
-        @guest3 = Guest.new("Big Chungus", 9000, "Without Me", "Hip Hop")
-        @guest4 = Guest.new("Lil Doggo", 420, "Lose Yourself", "Hip Hop")
-        @guest5 = Guest.new("Karen", 1, "Firework", "Pop")
+        @guest1 = Guest.new("Stephen", 100, "Highway To Hell", "Rock", Tab.new(@guest1))
+        @guest2 = Guest.new("Erin", 1000, "Bootylicious", "Pop", Tab.new(@guest2))
+        @guest3 = Guest.new("Big Chungus", 9000, "Without Me", "Hip Hop", Tab.new(@guest3))
+        @guest4 = Guest.new("Lil Doggo", 420, "Lose Yourself", "Hip Hop", Tab.new(@guest4))
+        @guest5 = Guest.new("Karen", 1, "Firework", "Pop", Tab.new(@guest5))
         
         @song1 = Song.new("AC/DC", "Highway To Hell", "Rock")
         @song2 = Song.new("Eminem", "Lose Yourself", "Hip Hop")
@@ -51,6 +52,7 @@ class TestRoom < Minitest::Test
         assert_equal([@guest1], @room1.room_guests())
         assert_equal(90, @guest1.cash())
         assert_equal(510, @room1.till())
+        assert_equal(10, @guest1.tab().amount())
     end
 
     def test_check_out_guest()
