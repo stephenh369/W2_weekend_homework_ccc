@@ -3,6 +3,7 @@ require('minitest/reporters')
 
 require_relative('../Bar')
 require_relative('../Drink')
+require_relative('../Guest')
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new()
 
@@ -14,6 +15,9 @@ class TestBar < Minitest::Test
         @drink1 = Drink.new("Beer", 3.00)
         @drink2 = Drink.new("Whisky", 2.50)
         @drink3 = Drink.new("Vodka", 2.00)
+
+        @guest1 = Guest.new("Stephen", 100, "Highway To Hell", "Rock")
+        @guest2 = Guest.new("Erin", 1000, "Bootylicious", "Pop")
     end
 
     def test_get_bar_name()
@@ -25,6 +29,14 @@ class TestBar < Minitest::Test
         @bar1.add_drink(@drink2)
         @bar1.add_drink(@drink3)
         assert_equal([@drink1, @drink2, @drink3], @bar1.drinks)
+    end
+
+    def test_sell_drink()
+        @bar1.add_drink(@drink1)
+        @bar1.sell_drink(@guest1, @drink1)
+        assert_equal(97, @guest1.cash())
+        assert_equal(253, @bar1.till())
+        assert_equal("We don't have that.", @bar1.sell_drink(@guest1, @drink2))
     end
 
 end
